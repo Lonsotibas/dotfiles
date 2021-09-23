@@ -1,0 +1,7 @@
+polybar|notice:  Parsing config file: /home/matitis/.config/polybar/config
+polybar|notice:  pulseaudio: using default sink alsa_output.pci-0000_00_1f.3.analog-stereo
+polybar|notice:  Loaded font "Fira Code:style=Regular:size=11" (name=DejaVu Sans, offset=3, file=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf)
+polybar|notice:  Loaded font "Font Awesome 5 Brands Regular:style=Regular:size=11" (name=Font Awesome 5 Brands, offset=3, file=/home/matitis/.local/share/fonts/fa-brands-400.ttf)
+polybar|notice:  Loaded font "Font Awesome 5 Free Solid:style=Solid:size=11" (name=Font Awesome 5 Free, offset=3, file=/home/matitis/.local/share/fonts/fa-solid-900.ttf)
+polybar|notice:  Loaded font "Font Awesome 5 Free Regular:style=Regular:size=11" (name=Font Awesome 5 Free, offset=3, file=/home/matitis/.local/share/fonts/fa-regular-400.ttf)
+polybar|notice:  pulseaudio: using default sink alsa_output.pci-0000_00_1f.3.analog-stereo
