@@ -1,1 +1,6 @@
-/home/matitis/.config/polybar/launch.sh: 12: /home/matitis/.config/polybar/music_bar.py: not found
+polybar|notice:  Parsing config file: /home/matitis/.config/polybar/config
+polybar|warn:  No monitor specified, using "eDP-1-1"
+polybar|notice:  Loaded font "Fira Code:style=Regular:size=10" (name=DejaVu Sans, offset=3, file=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf)
+polybar|notice:  Loaded font "Font Awesome 5 Brands Regular:style=Regular:size=10" (name=Font Awesome 5 Brands, offset=2, file=/home/matitis/.local/share/fonts/fa-brands-400.ttf)
+polybar|notice:  Loaded font "Font Awesome 5 Free Solid:style=Solid:size=10" (name=Font Awesome 5 Free, offset=2, file=/home/matitis/.local/share/fonts/fa-solid-900.ttf)
+polybar|notice:  Loaded font "Font Awesome 5 Free Regular:style=Regular:size=10" (name=Font Awesome 5 Free, offset=2, file=/home/matitis/.local/share/fonts/fa-regular-400.ttf)

@@ -7,9 +7,10 @@ exec feh --bg-fill ~/Imágenes/tatamigalaxy.jpg
 # Transparecy
 exec --no-startup-id picom -b
 # Second Monitor
-exec xrandr --output HDMI-0 --auto --right-of eDP-1-1
+exec --no-startup-id xrandr --output HDMI-0 --off
+exec --no-startup-id xrandr --output HDMI-0 --auto --right-of eDP-1-1
 # Keyboard Layout
-exec setxkbmap -layout us, es
+exec --no-startup-id setxkbmap -layout us
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -150,6 +151,8 @@ bindsym $mod+r mode "resize"
 
 # Bindings
 bindsym $mod+Esc exec --no-startup-id sh ~/.config/scripts/lock.sh
+bindsym $mod+p exec --no-startup-id python ~/.config/scripts/powermenu.py
+
 bindsym $mod+m exec xrandr --output HDMI-0 --auto --right-of eDP-1-1
 bindsym Mod1+m move workspace to output right
 
@@ -158,25 +161,33 @@ bindsym Mod1+f exec flameshot gui
 bindsym $mod+space exec rofi -theme ~/.config/rofi/launcher.rasi -show drun
 bindsym $mod+Tab exec rofi -theme ~/.config/rofi/windows.rasi -show window
 
-bindsym $mod+p exec --no-startup-id python ~/.config/scripts/powermenu.py
+bindsym $mod+n exec nautilus
 
-bindsym $mod+Mod1+Up exec --no-startup-id python ~/.config/scripts/volume.py up
-bindsym $mod+Mod1+Down exec --no-startup-id python ~/.config/scripts/volume.py down
-bindsym $mod+Mod1+m exec --no-startup-id python ~/.config/scripts/volume.py mute
+bindsym $mod+Mod1+Up exec --no-startup-id ~/.config/scripts/volume.py up
+bindsym $mod+Mod1+Down exec --no-startup-id ~/.config/scripts/volume.py down
+bindsym $mod+Mod1+m exec --no-startup-id ~/.config/scripts/volume.py mute
+
+bindsym $mod+Mod1+Return exec --no-startup-id playerctl play-pause
+bindsym $mod+Mod1+Right exec --no-startup-id playerctl next
+bindsym $mod+Mod1+Left exec --no-startup-id playerctl previous
 
 # Startup
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id spotify
 exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id thunderbird
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 exec --no-startup-id xss-lock ~/.config/scripts/lock.sh
 
 for_window [class="Gnome-terminal"] move container to workspace 2
-for_window [class="Spotify"] move container to workspace 4
+for_window [class="Thunderbird"] move container to workspace 4
+for_window [class="Spotify"] move container to workspace 5
+for_window [class="Org.gnome.Nautilus"] move container to workspace 6
 
-set $focused            #ff79c6
+set $focused            #bd93f9
 set $inactive           #495057
-set $unfocused          #bd93f9
-set $urgent             #50fa7b
+set $unfocused          #495057
+set $urgent             #ff5555
 set $placeholder        #e56b6f
 set $text               #f8f8f2
 set $indicator          #6c757d

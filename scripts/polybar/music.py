@@ -8,13 +8,13 @@ from unicodedata import east_asian_width
 # Config options
 
 # (int) : Length of media info string. If length of string exceedes this value, the text will scroll. Default value is 20
-message_display_len = 20
+message_display_len = 35
 
 # (int) : Font index of polybar. this value should be 1 more than the font value specified in polybar config.
 font_index = 1
 
 # (float) : Update speed of the text in seconds.
-update_delay = 0.3
+update_delay = 0.2
 
 # (list) : list of chars containing previous, play, pause, next glyphs for media controls in respective order
 control_chars = ['','','','']
@@ -25,7 +25,7 @@ control_chars = ['','','','']
 # example:
 display_player_prefix = {
     "spotify":  '',
-    "chrome":  '',
+    "chromium":  '',
     "default":  ''
 }
 
