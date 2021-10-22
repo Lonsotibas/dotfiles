@@ -118,6 +118,7 @@ let g:closetag_emptyTags_caseSensitive = 1
 
 " fzf
 nnoremap <C-p> :GFile<CR>
+nnoremap <C-w> :W<CR>
 
 " Coc-prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -160,7 +161,6 @@ endif
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)

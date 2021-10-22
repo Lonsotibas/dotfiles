@@ -6,8 +6,8 @@ import subprocess
 action = subprocess.getoutput("echo '\n\n\n' | rofi -theme ~/.config/rofi/powermenu.rasi -dmenu")
 
 actions = {
-    "": ["Apagar", "systemctl poweroff"],
-    "": ["Reiniciar","systemctl reboot"],
+    "": ["Apagar", "shutdown now"],
+    "": ["Reiniciar","reboot"],
     "": ["Cerrar Sesion","loginctl terminate-user 1000"],
     "": ["Bloquear","~/.config/scripts/lock.sh"],
 }

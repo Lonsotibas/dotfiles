@@ -1,6 +1,13 @@
 polybar|notice:  Parsing config file: /home/matitis/.config/polybar/config
-polybar|warn:  No monitor specified, using "eDP-1-1"
 polybar|notice:  Loaded font "Fira Code:style=Regular:size=10" (name=DejaVu Sans, offset=3, file=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf)
 polybar|notice:  Loaded font "Font Awesome 5 Brands Regular:style=Regular:size=10" (name=Font Awesome 5 Brands, offset=2, file=/home/matitis/.local/share/fonts/fa-brands-400.ttf)
 polybar|notice:  Loaded font "Font Awesome 5 Free Solid:style=Solid:size=10" (name=Font Awesome 5 Free, offset=2, file=/home/matitis/.local/share/fonts/fa-solid-900.ttf)
 polybar|notice:  Loaded font "Font Awesome 5 Free Regular:style=Regular:size=10" (name=Font Awesome 5 Free, offset=2, file=/home/matitis/.local/share/fonts/fa-regular-400.ttf)
+Traceback (most recent call last):
+  File "/home/matitis/.config/polybar/music_bar.py", line 14, in <module>
+    player_names = [service  for service in session_bus.list_names() if service.startswith('org.mpris.MediaPlayer2.')]
+  File "/usr/lib/python3/dist-packages/dbus/bus.py", line 333, in list_names
+    return self.call_blocking(BUS_DAEMON_NAME, BUS_DAEMON_PATH,
+  File "/usr/lib/python3/dist-packages/dbus/connection.py", line 652, in call_blocking
+    reply_message = self.send_message_with_reply_and_block(
+dbus.exceptions.DBusException: org.freedesktop.DBus.Error.NoReply: Did not receive a reply. Possible causes include: the remote application did not send a reply, the message bus security policy blocked the reply, the reply timeout expired, or the network connection was broken.

@@ -1,23 +1,18 @@
 set $mod Mod4
 
+# Second Monitor
+exec --no-startup-id xrandr --output HDMI-1-1 --auto --primary --right-of eDP-1
 # Fonts
 font pango:Font Awesome 5 Free Regular 12
 # Background
 exec feh --bg-fill ~/Imágenes/tatamigalaxy.jpg
 # Transparecy
 exec --no-startup-id picom -b
-# Second Monitor
-exec --no-startup-id xrandr --output HDMI-0 --off
-exec --no-startup-id xrandr --output HDMI-0 --auto --right-of eDP-1-1
 # Keyboard Layout
 exec --no-startup-id setxkbmap -layout us
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager
 exec --no-startup-id nm-applet
@@ -150,7 +145,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Bindings
-bindsym $mod+Esc exec --no-startup-id sh ~/.config/scripts/lock.sh
+bindsym Mod1+l exec --no-startup-id ~/.config/scripts/lock.sh
 bindsym $mod+p exec --no-startup-id python ~/.config/scripts/powermenu.py
 
 bindsym $mod+m exec xrandr --output HDMI-0 --auto --right-of eDP-1-1
@@ -179,10 +174,11 @@ exec --no-startup-id thunderbird
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 exec --no-startup-id xss-lock ~/.config/scripts/lock.sh
 
+for_window [class="Brave-browser"] move container to workspace 1
+for_window [class="Postman"] move container to workspace 1
 for_window [class="Gnome-terminal"] move container to workspace 2
 for_window [class="Thunderbird"] move container to workspace 4
 for_window [class="Spotify"] move container to workspace 5
-for_window [class="Org.gnome.Nautilus"] move container to workspace 6
 
 set $focused            #bd93f9
 set $inactive           #495057

@@ -21,7 +21,7 @@ configuration {
 }
 
 * {
-    background:                     #00000080;
+    background:                     #00000099;
     background-alt:              	#00000000;
     background-bar:                 #f2f2f215;
     foreground:                     #f2f2f2EE;
@@ -101,7 +101,7 @@ element {
 }
 
 element-icon {
-    size:                           48px;
+    size:                           60px;
     border:                         0px;
 }
 

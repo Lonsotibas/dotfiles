@@ -1,14 +1,6 @@
 #!/bin/sh
 
-OVERLAY="~/Imágenes/20150415214613.jpg"
-IMAGE="~/Imágenes/eltom.jpg"
-
-rm "$IMAGE"
-killall -q "i3lock"
-while pgrep -x i3lock >/dev/null; do sleep 1; done
-
-scrot "$IMAGE"
-convert "$IMAGE" -scale 5% -resize 2000% "$OVERLAY" -gravity center -composite -matte "$IMAGE"
+BACKGROUND="/home/matitis/Imágenes/4530945.jpg"
 
 BLANK='#00000000'
 CLEAR='#00000000'
@@ -18,7 +10,7 @@ WRONG='#ffa69ebb'
 VERIFYING='#ffd6a5'
 
 i3lock \
---image="$IMAGE" \
+--image="$BACKGROUND" \
 --insidever-color=$BLANK     \
 --ringver-color=$VERIFYING   \
 --insidewrong-color=$WRONG   \
@@ -39,3 +31,4 @@ i3lock \
 --no-modkey-text \
 --scale \
 --date-pos=100:100
+
