@@ -69,6 +69,7 @@ call plug#end()
 
 " Indent Guide
 let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 
@@ -123,11 +124,8 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Coc-terminal
 nmap <leader>t <Plug>(coc-terminal-toggle)
 
-" Coc snippets
-imap <C-l> <Plug>(coc-snippets-expand)
-
-
 " Coc
+let g:coc_global_extensions=[ 'coc-terminal', '@yaegassy/coc-intelephense', 'coc-css', 'coc-html', 'coc-prettier' ]
 " Use <Tab> and <S-Tab> for navigate completion list
 
 " Use tab for trigger completion with characters ahead and navigate.
