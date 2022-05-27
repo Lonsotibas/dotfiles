@@ -37,6 +37,15 @@ set colorcolumn=80
 
 call plug#begin('~/.vim/plugged')
 
+" Vim Airline
+Plug 'vim-airline/vim-airline'
+
+" Vim Rails
+Plug 'tpope/vim-rails'
+
+" Copilot
+Plug 'github/copilot.vim'
+
 " JSX Highlights
 Plug 'maxmellon/vim-jsx-pretty'
 
@@ -68,6 +77,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 
+" Debugger
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
+
 call plug#end()
 
 " Indent Guide
@@ -78,6 +91,29 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 " Vim with me
 colorscheme dracula
 highlight Normal guibg=none
+
+" Vim Airline
+let g:airline_theme='dracula'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ''
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+nnoremap <C-x> :bd<CR>
+autocmd BufDelete * call airline#extensions#tabline#buflist#invalidate()
+
 
 " Leader
 let mapleader = " "
@@ -119,6 +155,7 @@ let g:closetag_emptyTags_caseSensitive = 1
 " fzf
 nnoremap <C-p> :GFile<CR>
 nnoremap <C-w> :W<CR>
+nnoremap <C-e> :Files<CR>
 
 " Coc-prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -230,6 +267,27 @@ nnoremap <c-s-pagedown> :tabmove +1<cr>
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 
+" Debugger
+nnoremap <leader>m :MaximizerToggle!<CR>
+nnoremap <leader>dd :call vimspector#Launch()<CR>
+nnoremap <leader>dc :call GoToWindow(g:vimspector_session_windows.code)<CR>
+nnoremap <leader>dt :call GoToWindow(g:vimspector_session_windows.tagpage)<CR>
+nnoremap <leader>dv :call GoToWindow(g:vimspector_session_windows.variables)<CR>
+nnoremap <leader>dw :call GoToWindow(g:vimspector_session_windows.watches)<CR>
+nnoremap <leader>ds :call GoToWindow(g:vimspector_session_windows.stack_trace)<CR>
+nnoremap <leader>do :call GoToWindow(g:vimspector_session_windows.output)<CR>
+nnoremap <leader>de :call vimspector#Reset()<CR>
+
+nmap <leader>dl <Plug>VimspectorStepInto
+nmap <leader>dj <Plug>VimspectorStepOver
+nmap <leader>dk <Plug>VimspectorStepOut
+nmap <leader>d_ <Plug>VimspectorStepRestart
+nnoremap <leader>d<space> :call vimspector#Continue()<CR>
+
+nmap <leader>drc <Plug>VimspectorRunToCursor
+nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
+nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
+
 " Vim Lenguage Server
 let g:markdown_fenced_languages = [
       \ 'vim',
@@ -251,4 +309,3 @@ augroup END
 
 autocmd GUIEnter * silent! WToggleClean
 autocmd GUIEnter * silent! WSetAlpha 230
-
